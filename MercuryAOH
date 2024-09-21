@@ -1,0 +1,143 @@
+local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+--GUI CREATE
+local GUI = Mercury:Create{
+    Name = "RTF Menu AOH",
+    Size = UDim2.fromOffset(600, 400),
+    Theme = Mercury.Themes.Dark,
+    Link = "https://github.com/deeeity/mercury-lib"
+}
+
+local Tab = GUI:Tab{
+	Name = "Options",
+	Icon = "rbxassetid://8569322835"
+}
+
+-- Crear el toggle
+Tab:Toggle{
+    Name = "Rapid Punch",
+    StartingState = false,
+    Description = nil,
+    Callback = function(state)
+        -- Actualizar el valor de la variable global basada en el estado del toggle
+        getgenv().Hrapid = state
+
+        -- Si el toggle está activado, configurar el manejo de entradas
+        if state then
+            local UserInputService = game:GetService("UserInputService")
+
+            -- Función para manejar la finalización de entradas
+            local function onInputEnded(inputObject, gameProcessedEvent)
+                if gameProcessedEvent then return end
+                if getgenv().Hrapid then
+                    -- Verificar tipo de entrada para móvil (Touch) y PC (Mouse o Teclado)
+                    if inputObject.UserInputType == Enum.UserInputType.Touch or 
+                       inputObject.UserInputType == Enum.UserInputType.MouseButton1 or 
+                       inputObject.UserInputType == Enum.UserInputType.Keyboard then
+
+                        -- Realizar los golpes pesados rápidos
+                        for i = 1, 15 do
+                            spawn(function()
+                                game:GetService("ReplicatedStorage").Events.Punch:FireServer(0.4, 0.1, 1)
+                            end)
+                        end
+                    end
+                end
+            end
+
+            -- Conectar la función de manejo de entradas con el evento de finalización de entrada
+            UserInputService.InputEnded:Connect(onInputEnded)
+        end
+    end
+}
+
+Tab:Toggle{
+    Name = "Name Esp",
+    StartingState = false,
+    Description = "Toggle to enable/disable ESP for players.",
+    Callback = function(state)
+        -- Actualizar el valor de la variable global basada en el estado del toggle
+        getgenv().esp = state
+        
+        if state then
+            -- Configuración de la ESP
+            local Players = game:GetService("Players")
+            local esp_settings = {textsize=20}
+            local guiTemplate = Instance.new("BillboardGui")
+            local espTemplate = Instance.new("TextLabel", guiTemplate)
+            guiTemplate.Name = "esp"
+            guiTemplate.ResetOnSpawn = false
+            guiTemplate.AlwaysOnTop = true
+            guiTemplate.LightInfluence = 0
+            guiTemplate.Size = UDim2.new(1.75, 0, 1.75, 0)
+            espTemplate.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+            espTemplate.Text = ""
+            espTemplate.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001)
+            espTemplate.BorderSizePixel = 4
+            espTemplate.BorderColor3 = Color3.new(0, 255, 255)
+            espTemplate.BorderSizePixel = 0
+            espTemplate.Font = Enum.Font.SourceSansSemibold
+            espTemplate.TextSize = esp_settings.textsize
+            espTemplate.TextColor3 = Color3.fromRGB(0, 255, 255)
+
+            -- Función para actualizar la ESP
+            local function updateESP()
+                if not getgenv().esp then return end
+                for _, player in pairs(Players:GetPlayers()) do
+                    if player ~= Players.LocalPlayer and player.Character and not player.Character:FindFirstChild("esp") then
+                        local esp = guiTemplate:Clone()
+                        esp.TextLabel.Text = "Name: " .. player.Name
+                        esp.Parent = player.Character.Head
+                    end
+                end
+            end
+
+            -- Conectar la función de actualización con RenderStepped
+            game:GetService("RunService").RenderStepped:Connect(updateESP)
+        else
+            -- Opcional: Destruir etiquetas ESP existentes si se desactiva
+            for _, player in pairs(Players:GetPlayers()) do
+                local esp = player.Character and player.Character:FindFirstChild("esp")
+                if esp then
+                    esp:Destroy()
+                end
+            end
+        end
+    end
+}
+
+--Scripts
+local Tab2 = GUI:Tab{
+	Name = "Scripts Menu",
+	Icon = "rbxassetid://8569322835"
+}
+
+-- Crear el botón
+Tab2:Button{
+    Name = "Adonis Bypass",
+    Description = "Ez admins.",
+    Callback = function()
+        -- Cargar y ejecutar el script desde la URL
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua", true))()
+    end
+}
+
+-- Crear el botón
+Tab2:Button{
+    Name = "INFINITE YIELD",
+    Description = "So much comands",
+    Callback = function()
+        -- Cargar y ejecutar el script desde la URL de Pastebin
+        loadstring(game:HttpGet("https://pastebin.com/raw/aCmksbMy"))()
+    end
+}
+
+-- Crear el botón
+Tab2:Button{
+    Name = "INF JUMP",
+    Description = "Salto infinito.",
+    Callback = function()
+        -- Cargar y ejecutar el script desde la URL de Pastebin
+        loadstring(game:HttpGet("https://pastebin.com/raw/WweihvrM"))()
+    end
+}
+
