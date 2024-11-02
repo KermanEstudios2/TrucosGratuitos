@@ -67,28 +67,28 @@ local themeStyles = {
         SchemeColor = Color3.fromRGB(64, 64, 64),
         Background = Color3.fromRGB(0, 0, 0),
         Header = Color3.fromRGB(0, 0, 0),
-        TextColor = Color3.fromRGB(255,255,255),
+        TextColor = Color3.fromRGB(255, 255, 255),
         ElementColor = Color3.fromRGB(20, 20, 20)
     },
     LightTheme = {
         SchemeColor = Color3.fromRGB(150, 150, 150),
-        Background = Color3.fromRGB(255,255,255),
+        Background = Color3.fromRGB(255, 255, 255),
         Header = Color3.fromRGB(200, 200, 200),
-        TextColor = Color3.fromRGB(0,0,0),
+        TextColor = Color3.fromRGB(0, 0, 0),
         ElementColor = Color3.fromRGB(224, 224, 224)
     },
     BloodTheme = {
         SchemeColor = Color3.fromRGB(227, 27, 27),
         Background = Color3.fromRGB(10, 10, 10),
         Header = Color3.fromRGB(5, 5, 5),
-        TextColor = Color3.fromRGB(255,255,255),
+        TextColor = Color3.fromRGB(255, 255, 255),
         ElementColor = Color3.fromRGB(20, 20, 20)
     },
     GrapeTheme = {
         SchemeColor = Color3.fromRGB(166, 71, 214),
         Background = Color3.fromRGB(64, 50, 71),
         Header = Color3.fromRGB(36, 28, 41),
-        TextColor = Color3.fromRGB(255,255,255),
+        TextColor = Color3.fromRGB(255, 255, 255),
         ElementColor = Color3.fromRGB(74, 58, 84)
     },
     Ocean = {
@@ -123,7 +123,7 @@ local themeStyles = {
         SchemeColor = Color3.fromRGB(0, 166, 58),
         Background = Color3.fromRGB(31, 41, 43),
         Header = Color3.fromRGB(22, 29, 31),
-        TextColor = Color3.fromRGB(255,255,255),
+        TextColor = Color3.fromRGB(255, 255, 255),
         ElementColor = Color3.fromRGB(22, 29, 31)
     },
     NavyBlue = {
@@ -136,7 +136,7 @@ local themeStyles = {
     PurpleWhiteBlack = {
         SchemeColor = Color3.fromRGB(128, 0, 128),
         Background = Color3.fromRGB(255, 255, 255),
-        Header = Color3.fromRGB(0, 0, 0),  -- Negro
+        Header = Color3.fromRGB(0, 0, 0),
         TextColor = Color3.fromRGB(255, 255, 255),
         ElementColor = Color3.fromRGB(75, 0, 130)
     },
@@ -148,11 +148,11 @@ local themeStyles = {
         ElementColor = Color3.fromRGB(255, 99, 71)
     },
     Mystic = {
-    SchemeColor = Color3.fromRGB(128, 0, 128),
-    Background = Color3.fromRGB(20, 20, 20),
-    Header = Color3.fromRGB(30, 30, 30),
-    TextColor = Color3.fromRGB(255, 255, 255),
-    ElementColor = Color3.fromRGB(40, 40, 40)
+        SchemeColor = Color3.fromRGB(128, 0, 128),
+        Background = Color3.fromRGB(20, 20, 20),
+        Header = Color3.fromRGB(30, 30, 30),
+        TextColor = Color3.fromRGB(255, 255, 255),
+        ElementColor = Color3.fromRGB(40, 40, 40)
     },
     PastelDream = {
         SchemeColor = Color3.fromRGB(255, 182, 193),
@@ -175,6 +175,50 @@ local themeStyles = {
         TextColor = Color3.fromRGB(255, 255, 224),
         ElementColor = Color3.fromRGB(255, 140, 0)
     },
+    -- Nuevos colores modernos
+    CyberBlue = {
+        SchemeColor = Color3.fromRGB(0, 191, 255),
+        Background = Color3.fromRGB(10, 10, 30),
+        Header = Color3.fromRGB(20, 20, 50),
+        TextColor = Color3.fromRGB(255, 255, 255),
+        ElementColor = Color3.fromRGB(30, 30, 70)
+    },
+    NeonGreen = {
+        SchemeColor = Color3.fromRGB(57, 255, 20),
+        Background = Color3.fromRGB(10, 10, 10),
+        Header = Color3.fromRGB(25, 25, 25),
+        TextColor = Color3.fromRGB(0, 0, 0),
+        ElementColor = Color3.fromRGB(20, 20, 20)
+    },
+    ElectricPurple = {
+        SchemeColor = Color3.fromRGB(128, 0, 255),
+        Background = Color3.fromRGB(30, 30, 50),
+        Header = Color3.fromRGB(45, 45, 70),
+        TextColor = Color3.fromRGB(255, 255, 255),
+        ElementColor = Color3.fromRGB(40, 40, 60)
+    },
+    MintFresh = {
+        SchemeColor = Color3.fromRGB(170, 255, 195),
+        Background = Color3.fromRGB(10, 30, 20),
+        Header = Color3.fromRGB(20, 40, 30),
+        TextColor = Color3.fromRGB(0, 0, 0),
+        ElementColor = Color3.fromRGB(25, 55, 40)
+    },
+    -- Colores épicos y legendarios
+    DragonsBreath = {
+        SchemeColor = Color3.fromRGB(255, 0, 0),
+        Background = Color3.fromRGB(20, 20, 20),
+        Header = Color3.fromRGB(30, 0, 0),
+        TextColor = Color3.fromRGB(255, 255, 255),
+        ElementColor = Color3.fromRGB(40, 0, 0)
+    },
+    CelestialGold = {
+        SchemeColor = Color3.fromRGB(255, 215, 0),
+        Background = Color3.fromRGB(10, 10, 10),
+        Header = Color3.fromRGB(20, 20, 20),
+        TextColor = Color3.fromRGB(0, 0, 0),
+        ElementColor = Color3.fromRGB(30, 30, 30)
+    }
 }
 local oldTheme = ""
 
@@ -241,6 +285,18 @@ function Kavo.CreateLib(kavName, themeList)
         themeList = themeStyles.ForestGreens
     elseif themeList == "SunsetGlow" then
         themeList = themeStyles.SunsetGlow
+    elseif themeList == "CyberBlue" then
+        themeList = themeStyles.CyberBlue
+    elseif themeList == "NeonGreen" then
+        themeList = themeStyles.NeonGreen
+    elseif themeList == "ElectricPurple" then
+        themeList = themeStyles.ElectricPurple
+    elseif themeList == "MintFresh" then
+        themeList = themeStyles.MintFresh
+    elseif themeList == "DragonsBreath" then
+        themeList = themeStyles.DragonsBreath
+    elseif themeList == "CelestialGold" then
+        themeList = themeStyles.CelestialGold
     else
         if themeList.SchemeColor == nil then
             themeList.SchemeColor = Color3.fromRGB(74, 99, 135)
