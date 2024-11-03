@@ -1,0 +1,26 @@
+-- Suponiendo que:
+-- playerExp es la experiencia actual del jugador
+-- playerLevel es el nivel actual del jugador
+-- expToNextLevel es la experiencia necesaria para subir al siguiente nivel
+
+function gainExp(amount)
+    playerExp = playerExp + amount  -- Sumar experiencia ganada
+
+    -- Verificar si la experiencia acumulada permite subir de nivel
+    while playerExp >= expToNextLevel do
+        playerExp = playerExp - expToNextLevel  -- Reducir la experiencia usada para subir de nivel
+        playerLevel = playerLevel + 1           -- Incrementar el nivel del jugador
+        print("¡Has subido al nivel " .. playerLevel .. "!")
+
+        -- Aquí añades las acciones al subir de nivel:
+        -- Desbloquear habilidades, aumentar atributos, etc.
+
+        -- Calcular la experiencia necesaria para el siguiente nivel, disminuyéndola
+        expToNextLevel = expToNextLevel / 1.5  -- Dividir para necesitar menos experiencia
+
+        -- Asegurarse de que la experiencia necesaria no baje de 10
+        if expToNextLevel < 10 then
+            expToNextLevel = 10
+        end
+    end
+end
