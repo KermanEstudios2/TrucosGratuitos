@@ -219,7 +219,6 @@ local themeStyles = {
         TextColor = Color3.fromRGB(0, 0, 0),
         ElementColor = Color3.fromRGB(30, 30, 30)
     },
-    -- Nuevos colores
     VerdeClaro = {
         SchemeColor = Color3.fromRGB(0, 255, 0),
         Background = Color3.fromRGB(20, 20, 20),
@@ -319,13 +318,10 @@ function Kavo.CreateLib(kavName, themeList)
         themeList = themeStyles.DragonsBreath
     elseif themeList == "CelestialGold" then
         themeList = themeStyles.CelestialGold
-    else
     elseif themeList == "VerdeClaro" then
         themeList = themeStyles.CelestialGold
-    else
     elseif themeList == "LapizLazuli" then
         themeList = themeStyles.CelestialGold
-    else
     elseif themeList == "UltraEgo" then
         themeList = themeStyles.CelestialGold
     else
