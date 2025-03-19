@@ -218,25 +218,25 @@ local themeStyles = {
         ElementColor = Color3.fromRGB(30, 30, 30)
     },
     VerdeClaro = {
-        SchemeColor = Color3.fromRGB(0, 255, 0),
-        Background = Color3.fromRGB(20, 20, 20),
-        Header = Color3.fromRGB(0, 30, 0),
-        TextColor = Color3.fromRGB(255, 255, 255),
-        ElementColor = Color3.fromRGB(0, 40, 0)
+        SchemeColor = Color3.fromRGB(173, 255, 47),
+        Background = Color3.fromRGB(10, 30, 10),
+        Header = Color3.fromRGB(20, 50, 20),
+        TextColor = Color3.fromRGB(0, 0, 0),
+        ElementColor = Color3.fromRGB(25, 55, 25)
     },
     LapizLazuli = {
-        SchemeColor = Color3.fromRGB(0, 150, 255),
-        Background = Color3.fromRGB(20, 20, 20),
-        Header = Color3.fromRGB(0, 0, 30),
+        SchemeColor = Color3.fromRGB(38, 97, 156),
+        Background = Color3.fromRGB(10, 10, 30),
+        Header = Color3.fromRGB(20, 20, 50),
         TextColor = Color3.fromRGB(255, 255, 255),
-        ElementColor = Color3.fromRGB(0, 0, 40)
+        ElementColor = Color3.fromRGB(30, 30, 70)
     },
     UltraEgo = {
-        SchemeColor = Color3.fromRGB(180, 0, 255),
-        Background = Color3.fromRGB(20, 20, 20),
-        Header = Color3.fromRGB(30, 0, 30),
+        SchemeColor = Color3.fromRGB(186, 85, 211),
+        Background = Color3.fromRGB(40, 10, 50),
+        Header = Color3.fromRGB(60, 20, 80),
         TextColor = Color3.fromRGB(255, 255, 255),
-        ElementColor = Color3.fromRGB(40, 0, 40)
+        ElementColor = Color3.fromRGB(50, 20, 70)
     }
 }
 local oldTheme = ""
