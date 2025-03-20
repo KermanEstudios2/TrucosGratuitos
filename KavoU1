@@ -175,6 +175,7 @@ local themeStyles = {
         TextColor = Color3.fromRGB(255, 255, 224),
         ElementColor = Color3.fromRGB(255, 140, 0)
     },
+    -- Nuevos colores modernos
     CyberBlue = {
         SchemeColor = Color3.fromRGB(0, 191, 255),
         Background = Color3.fromRGB(10, 10, 30),
@@ -203,6 +204,7 @@ local themeStyles = {
         TextColor = Color3.fromRGB(0, 0, 0),
         ElementColor = Color3.fromRGB(25, 55, 40)
     },
+    -- Colores épicos y legendarios
     DragonsBreath = {
         SchemeColor = Color3.fromRGB(255, 0, 0),
         Background = Color3.fromRGB(20, 20, 20),
@@ -217,26 +219,33 @@ local themeStyles = {
         TextColor = Color3.fromRGB(0, 0, 0),
         ElementColor = Color3.fromRGB(30, 30, 30)
     },
-    VerdeClaro = {
-        SchemeColor = Color3.fromRGB(173, 255, 47),
-        Background = Color3.fromRGB(10, 30, 10),
-        Header = Color3.fromRGB(20, 50, 20),
-        TextColor = Color3.fromRGB(0, 0, 0),
-        ElementColor = Color3.fromRGB(25, 55, 25)
+    SunsetOrange = {
+        SchemeColor = Color3.fromRGB(255, 120, 50),   -- Naranja cálido
+        Background = Color3.fromRGB(30, 20, 10),      -- Marrón oscuro
+        Header = Color3.fromRGB(120, 60, 0),          -- Naranja oscuro
+        TextColor = Color3.fromRGB(255, 230, 200),    -- Crema
+        ElementColor = Color3.fromRGB(180, 90, 40)    -- Naranja intermedio
     },
-    LapizLazuli = {
-        SchemeColor = Color3.fromRGB(38, 97, 156),
-        Background = Color3.fromRGB(10, 10, 30),
-        Header = Color3.fromRGB(20, 20, 50),
-        TextColor = Color3.fromRGB(255, 255, 255),
-        ElementColor = Color3.fromRGB(30, 30, 70)
+    IceBlue = {
+        SchemeColor = Color3.fromRGB(150, 200, 255),  -- Azul hielo
+        Background = Color3.fromRGB(20, 30, 40),      -- Azul grisáceo oscuro
+        Header = Color3.fromRGB(60, 100, 160),        -- Azul cielo oscuro
+        TextColor = Color3.fromRGB(220, 240, 255),    -- Azul muy claro
+        ElementColor = Color3.fromRGB(100, 140, 200)  -- Azul intermedio
     },
-    UltraEgo = {
-        SchemeColor = Color3.fromRGB(186, 85, 211),
-        Background = Color3.fromRGB(40, 10, 50),
-        Header = Color3.fromRGB(60, 20, 80),
-        TextColor = Color3.fromRGB(255, 255, 255),
-        ElementColor = Color3.fromRGB(50, 20, 70)
+    ToxicGreen = {
+        SchemeColor = Color3.fromRGB(100, 255, 100),  -- Verde radioactivo
+        Background = Color3.fromRGB(10, 20, 10),      -- Verde muy oscuro
+        Header = Color3.fromRGB(50, 120, 50),         -- Verde botella
+        TextColor = Color3.fromRGB(200, 255, 200),    -- Verde pastel
+        ElementColor = Color3.fromRGB(80, 180, 80)    -- Verde neón intermedio
+    },
+    GoldRush = {
+        SchemeColor = Color3.fromRGB(255, 200, 50),   -- Dorado vibrante
+        Background = Color3.fromRGB(30, 25, 10),      -- Marrón dorado oscuro
+        Header = Color3.fromRGB(120, 100, 0),         -- Oro oscuro
+        TextColor = Color3.fromRGB(255, 235, 180),    -- Dorado claro
+        ElementColor = Color3.fromRGB(180, 150, 40)   -- Amarillo oro intermedio
     }
 }
 local oldTheme = ""
@@ -316,12 +325,14 @@ function Kavo.CreateLib(kavName, themeList)
         themeList = themeStyles.DragonsBreath
     elseif themeList == "CelestialGold" then
         themeList = themeStyles.CelestialGold
-    elseif themeList == "VerdeClaro" then
-        themeList = themeStyles.CelestialGold
-    elseif themeList == "LapizLazuli" then
-        themeList = themeStyles.CelestialGold
-    elseif themeList == "UltraEgo" then
-        themeList = themeStyles.CelestialGold
+    elseif themeList == "SunsetOrange" then
+        themeList = themeStyles.SunsetOrange
+    elseif themeList == "IceBlue" then
+        themeList = themeStyles.IceBlue
+    elseif themeList == "ToxicGreen" then
+        themeList = themeStyles.ToxicGreen
+    elseif themeList == "GoldRush" then
+        themeList = themeStyles.GoldRush
     else
         if themeList.SchemeColor == nil then
             themeList.SchemeColor = Color3.fromRGB(74, 99, 135)
