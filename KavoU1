@@ -98,6 +98,13 @@ local themeStyles = {
         TextColor = Color3.fromRGB(200, 200, 200),
         ElementColor = Color3.fromRGB(38, 45, 71)
     },
+    DarkCrimson = {
+        SchemeColor = Color3.fromRGB(139, 0, 0),          -- Rojo oscuro fuerte
+        Background = Color3.fromRGB(10, 10, 10),          -- Negro casi absoluto
+        Header = Color3.fromRGB(20, 0, 0),                -- Negro con tinte rojo
+        TextColor = Color3.fromRGB(220, 20, 60),          -- Carmesí para textos
+        ElementColor = Color3.fromRGB(30, 0, 0)           -- Elementos en rojo oscuro
+    },
     Midnight = {
         SchemeColor = Color3.fromRGB(26, 189, 158),
         Background = Color3.fromRGB(44, 62, 82),
@@ -333,6 +340,8 @@ function Kavo.CreateLib(kavName, themeList)
         themeList = themeStyles.ToxicGreen
     elseif themeList == "GoldRush" then
         themeList = themeStyles.GoldRush
+    elseif themeList == "DarkCrimson" then
+        themeList = themeStyles.DarkCrimson
     else
         if themeList.SchemeColor == nil then
             themeList.SchemeColor = Color3.fromRGB(74, 99, 135)
