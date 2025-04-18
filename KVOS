@@ -26,14 +26,13 @@ end
 
 createSound("Click", "rbxassetid://1673280232")
 createSound("Toggle", "rbxassetid://7884774051")
-createSound("Hover", "rbxassetid://1673280232")
-createSound("Open", "rbxassetid://6477435734")
 createSound("TextBox", "rbxassetid://92122613299499")
 
 local function playSound(name)
     if UI_Sounds[name] then
         UI_Sounds[name]:Play()
     end
+end
 end
 end
 
