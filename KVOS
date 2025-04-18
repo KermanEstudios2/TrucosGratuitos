@@ -7,35 +7,6 @@ local run = game:GetService("RunService")
 
 local Utility = {}
 local Objects = {}
-
-local player = game.Players.LocalPlayer
-local soundsFolder = Instance.new("Folder")
-soundsFolder.Name = "UISounds"
-soundsFolder.Parent = player:WaitForChild("PlayerGui")
-
-local UI_Sounds = {}
-
-local function createSound(name, id)
-    local sound = Instance.new("Sound")
-    sound.Name = name
-    sound.SoundId = id
-    sound.Volume = 1
-    sound.Parent = soundsFolder
-    UI_Sounds[name] = sound
-end
-
-createSound("Click", "rbxassetid://1673280232")
-createSound("Toggle", "rbxassetid://7884774051")
-createSound("TextBox", "rbxassetid://92122613299499")
-
-local function playSound(name)
-    if UI_Sounds[name] then
-        UI_Sounds[name]:Play()
-    end
-end
-end
-end
-
 function Kavo:DraggingEnabled(frame, parent)
         
     parent = parent or frame
@@ -78,11 +49,11 @@ end
 
 
 local themes = {
-    SchemeColor = Color3.fromRGB(74, 99, 135),
-    Background = Color3.fromRGB(36, 37, 43),
-    Header = Color3.fromRGB(28, 29, 34),
-    TextColor = Color3.fromRGB(255,255,255),
-    ElementColor = Color3.fromRGB(32, 32, 38)
+    SchemeColor = Color3.fromRGB(0, 120, 215),
+    Background = Color3.fromRGB(24, 24, 28),
+    Header = Color3.fromRGB(30, 30, 36),
+    TextColor = Color3.fromRGB(245, 245, 245),
+    ElementColor = Color3.fromRGB(32, 34, 40)
 }
 local themes = {
     SchemeColor = Color3.fromRGB(74, 99, 135),
@@ -303,7 +274,6 @@ function Kavo:ToggleUI()
         game.CoreGui[LibName].Enabled = false
     else
         game.CoreGui[LibName].Enabled = true
-        playSound("Open")
     end
 end
 
@@ -429,7 +399,7 @@ function Kavo.CreateLib(kavName, themeList)
     Main.Position = UDim2.new(0.336503863, 0, 0.275485456, 0)
     Main.Size = UDim2.new(0, 525, 0, 318)
 
-    MainCorner.CornerRadius = UDim.new(0, 4)
+    MainCorner.CornerRadius = UDim.new(0, 8)
     MainCorner.Name = "MainCorner"
     MainCorner.Parent = Main
 
@@ -438,7 +408,7 @@ function Kavo.CreateLib(kavName, themeList)
     MainHeader.BackgroundColor3 = themeList.Header
     Objects[MainHeader] = "BackgroundColor3"
     MainHeader.Size = UDim2.new(0, 525, 0, 29)
-    headerCover.CornerRadius = UDim.new(0, 4)
+    headerCover.CornerRadius = UDim.new(0, 8)
     headerCover.Name = "headerCover"
     headerCover.Parent = MainHeader
 
@@ -493,7 +463,7 @@ function Kavo.CreateLib(kavName, themeList)
     MainSide.Position = UDim2.new(-7.4505806e-09, 0, 0.0911949649, 0)
     MainSide.Size = UDim2.new(0, 149, 0, 289)
 
-    sideCorner.CornerRadius = UDim.new(0, 4)
+    sideCorner.CornerRadius = UDim.new(0, 8)
     sideCorner.Name = "sideCorner"
     sideCorner.Parent = MainSide
 
@@ -712,7 +682,7 @@ function Kavo.CreateLib(kavName, themeList)
             Objects[sectionHead] = "BackgroundColor3"
             sectionHead.Size = UDim2.new(0, 352, 0, 33)
 
-            sHeadCorner.CornerRadius = UDim.new(0, 4)
+            sHeadCorner.CornerRadius = UDim.new(0, 8)
             sHeadCorner.Name = "sHeadCorner"
             sHeadCorner.Parent = sectionHead
 
@@ -796,7 +766,7 @@ function Kavo.CreateLib(kavName, themeList)
                 buttonElement.TextSize = 14.000
                 Objects[buttonElement] = "BackgroundColor3"
 
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = buttonElement
 
                 viewInfo.Name = "viewInfo"
@@ -839,7 +809,7 @@ function Kavo.CreateLib(kavName, themeList)
                 moreInfo.TextXAlignment = Enum.TextXAlignment.Left
                 Objects[moreInfo] = "BackgroundColor3"
 
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = moreInfo
 
                 touch.Name = "touch"
@@ -886,8 +856,7 @@ function Kavo.CreateLib(kavName, themeList)
                 local sample = Sample
 
                 btn.MouseButton1Click:Connect(function()
-    playSound("Click")
-if not focusing then
+                    if not focusing then
                         callback()
                         local c = sample:Clone()
                         c.Parent = btn
@@ -915,8 +884,7 @@ if not focusing then
                 end)
                 local hovering = false
                 btn.MouseEnter:Connect(function()
-    playSound("Hover")
-if not focusing then
+                    if not focusing then
                         game.TweenService:Create(btn, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                             BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 8, themeList.ElementColor.g * 255 + 9, themeList.ElementColor.b * 255 + 10)
                         }):Play()
@@ -994,7 +962,7 @@ if not focusing then
                 textboxElement.TextColor3 = Color3.fromRGB(0, 0, 0)
                 textboxElement.TextSize = 14.000
 
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = textboxElement
 
                 viewInfo.Name = "viewInfo"
@@ -1036,7 +1004,7 @@ if not focusing then
                 TextBox.TextColor3 = themeList.SchemeColor
                 TextBox.TextSize = 12.000
 
-                UICorner_2.CornerRadius = UDim.new(0, 4)
+                UICorner_2.CornerRadius = UDim.new(0, 8)
                 UICorner_2.Parent = TextBox
 
                 togName.Name = "togName"
@@ -1075,7 +1043,7 @@ if not focusing then
                     Utility:TweenObject(moreInfo, {TextColor3 = Color3.fromRGB(255,255,255)}, 0.2)
                 end 
 
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = moreInfo
 
 
@@ -1086,8 +1054,7 @@ if not focusing then
                 local infBtn = viewInfo
 
                 btn.MouseButton1Click:Connect(function()
-    playSound("Click")
-if focusing then
+                    if focusing then
                         for i,v in next, infoContainer:GetChildren() do
                             Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
                             focusing = false
@@ -1097,8 +1064,7 @@ if focusing then
                 end)
                 local hovering = false
                 btn.MouseEnter:Connect(function()
-    playSound("Hover")
-if not focusing then
+                    if not focusing then
                         game.TweenService:Create(btn, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                             BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 8, themeList.ElementColor.g * 255 + 9, themeList.ElementColor.b * 255 + 10)
                         }):Play()
@@ -1196,7 +1162,7 @@ if not focusing then
                     toggleElement.TextColor3 = Color3.fromRGB(0, 0, 0)
                     toggleElement.TextSize = 14.000
 
-                    UICorner.CornerRadius = UDim.new(0, 4)
+                    UICorner.CornerRadius = UDim.new(0, 8)
                     UICorner.Parent = toggleElement
 
                     toggleDisabled.Name = "toggleDisabled"
@@ -1271,7 +1237,7 @@ if not focusing then
                     moreInfo.TextSize = 14.000
                     moreInfo.TextXAlignment = Enum.TextXAlignment.Left
     
-                    UICorner.CornerRadius = UDim.new(0, 4)
+                    UICorner.CornerRadius = UDim.new(0, 8)
                     UICorner.Parent = moreInfo
 
                     local ms = game.Players.LocalPlayer:GetMouse()
@@ -1292,8 +1258,7 @@ if not focusing then
                 UpdateSize()
 
                     btn.MouseButton1Click:Connect(function()
-    playSound("Click")
-if not focusing then
+                        if not focusing then
                             if toggled == false then
                                 game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
                                     ImageTransparency = 0
@@ -1347,8 +1312,7 @@ if not focusing then
                     end)
                     local hovering = false
                     btn.MouseEnter:Connect(function()
-    playSound("Hover")
-if not focusing then
+                        if not focusing then
                             game.TweenService:Create(btn, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                                 BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 8, themeList.ElementColor.g * 255 + 9, themeList.ElementColor.b * 255 + 10)
                             }):Play()
@@ -1451,7 +1415,7 @@ if not focusing then
                 sliderElement.TextColor3 = Color3.fromRGB(0, 0, 0)
                 sliderElement.TextSize = 14.000
 
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = sliderElement
 
                 togName.Name = "togName"
@@ -1547,7 +1511,7 @@ if not focusing then
                 moreInfo.RichText = true
                 moreInfo.TextXAlignment = Enum.TextXAlignment.Left
 
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = moreInfo
 
                 if themeList.SchemeColor == Color3.fromRGB(255,255,255) then
@@ -1568,8 +1532,7 @@ if not focusing then
                 local infBtn = viewInfo
                 local hovering = false
                 btn.MouseEnter:Connect(function()
-    playSound("Hover")
-if not focusing then
+                    if not focusing then
                         game.TweenService:Create(btn, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                             BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 8, themeList.ElementColor.g * 255 + 9, themeList.ElementColor.b * 255 + 10)
                         }):Play()
@@ -1806,7 +1769,7 @@ if not focusing then
                 viewInfo.ImageRectOffset = Vector2.new(764, 764)
                 viewInfo.ImageRectSize = Vector2.new(36, 36)
 
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = dropOpen
 
                 local Sample = Instance.new("ImageLabel")
@@ -1848,8 +1811,7 @@ if not focusing then
 
                 local hovering = false
                 btn.MouseEnter:Connect(function()
-    playSound("Hover")
-if not focusing then
+                    if not focusing then
                         game.TweenService:Create(btn, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                             BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 8, themeList.ElementColor.g * 255 + 9, themeList.ElementColor.b * 255 + 10)
                         }):Play()
@@ -1878,7 +1840,7 @@ if not focusing then
                         moreInfo.TextColor3 = themeList.TextColor
                     end
                 end)()
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = moreInfo
 
                 if themeList.SchemeColor == Color3.fromRGB(255,255,255) then
@@ -1971,7 +1933,7 @@ if not focusing then
                         end
                     end)
     
-                    UICorner_2.CornerRadius = UDim.new(0, 4)
+                    UICorner_2.CornerRadius = UDim.new(0, 8)
                     UICorner_2.Parent = optionSelect
 
                     local oHover = false
@@ -2036,7 +1998,7 @@ if not focusing then
                         optionSelect.TextSize = 14.000
                         optionSelect.TextXAlignment = Enum.TextXAlignment.Left
                         optionSelect.ClipsDescendants = true
-                        UICorner_2.CornerRadius = UDim.new(0, 4)
+                        UICorner_2.CornerRadius = UDim.new(0, 8)
                         UICorner_2.Parent = optionSelect
                         optionSelect.MouseButton1Click:Connect(function()
                             if not focusing then
@@ -2272,7 +2234,7 @@ if not focusing then
                     end
                 end)        
 
-                UICorner1.CornerRadius = UDim.new(0, 4)
+                UICorner1.CornerRadius = UDim.new(0, 8)
                 UICorner1.Parent = moreInfo
 
                 if themeList.SchemeColor == Color3.fromRGB(255,255,255) then
@@ -2282,7 +2244,7 @@ if not focusing then
                     Utility:TweenObject(moreInfo, {TextColor3 = Color3.fromRGB(255,255,255)}, 0.2)
                 end 
 
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = keybindElement
 
                 touch.Name = "touch"
@@ -2437,7 +2399,7 @@ if not focusing then
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
                     end
                 end)
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = colorElement
 
                 colorHeader.Name = "colorHeader"
@@ -2446,7 +2408,7 @@ if not focusing then
                 colorHeader.Size = UDim2.new(0, 352, 0, 33)
                 colorHeader.ClipsDescendants = true
 
-                UICorner_2.CornerRadius = UDim.new(0, 4)
+                UICorner_2.CornerRadius = UDim.new(0, 8)
                 UICorner_2.Parent = colorHeader
                 
                 touch.Name = "touch"
@@ -2490,7 +2452,7 @@ if not focusing then
                 moreInfo.RichText = true
                 moreInfo.TextXAlignment = Enum.TextXAlignment.Left
 
-                UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = moreInfo
 
                 viewInfo.Name = "viewInfo"
@@ -2531,7 +2493,7 @@ if not focusing then
                 colorCurrent.Position = UDim2.new(0.792613626, 0, 0.212121218, 0)
                 colorCurrent.Size = UDim2.new(0, 42, 0, 18)
 
-                UICorner_3.CornerRadius = UDim.new(0, 4)
+                UICorner_3.CornerRadius = UDim.new(0, 8)
                 UICorner_3.Parent = colorCurrent
 
                 UIListLayout.Parent = colorElement
@@ -2544,7 +2506,7 @@ if not focusing then
                 colorInners.Position = UDim2.new(0, 0, 0.255319148, 0)
                 colorInners.Size = UDim2.new(0, 352, 0, 105)
 
-                UICorner_4.CornerRadius = UDim.new(0, 4)
+                UICorner_4.CornerRadius = UDim.new(0, 8)
                 UICorner_4.Parent = colorInners
 
                 rgb.Name = "rgb"
@@ -2555,7 +2517,7 @@ if not focusing then
                 rgb.Size = UDim2.new(0, 211, 0, 93)
                 rgb.Image = "http://www.roblox.com/asset/?id=6523286724"
 
-                UICorner_5.CornerRadius = UDim.new(0, 4)
+                UICorner_5.CornerRadius = UDim.new(0, 8)
                 UICorner_5.Parent = rgb
 
                 rbgcircle.Name = "rbgcircle"
@@ -2576,7 +2538,7 @@ if not focusing then
                 darkness.Size = UDim2.new(0, 18, 0, 93)
                 darkness.Image = "http://www.roblox.com/asset/?id=6523291212"
 
-                UICorner_6.CornerRadius = UDim.new(0, 4)
+                UICorner_6.CornerRadius = UDim.new(0, 8)
                 UICorner_6.Parent = darkness
 
                 darkcircle.Name = "darkcircle"
@@ -2814,7 +2776,7 @@ if not focusing then
 	            label.TextSize = 14.000
 	            label.TextXAlignment = Enum.TextXAlignment.Left
 	            
-	           	UICorner.CornerRadius = UDim.new(0, 4)
+	           	UICorner.CornerRadius = UDim.new(0, 8)
                 UICorner.Parent = label
             	
 	            if themeList.SchemeColor == Color3.fromRGB(255,255,255) then
