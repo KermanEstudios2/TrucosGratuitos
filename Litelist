@@ -8,10 +8,6 @@ local whitelist = {
 	[4610082294] = true  -- Saul
 	[1867007462] = true  -- Marti
 	[675984744] = true  -- Andy
-	[87654321] = true  -- Otro ejemplo
-	[87654321] = true  -- Otro ejemplo
-	[87654321] = true  -- Otro ejemplo
-	[87654321] = true  -- Otro ejemplo
 }
 
 -- Espera opcional antes de hacer kick
