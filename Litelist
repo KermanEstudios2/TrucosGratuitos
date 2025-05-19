@@ -15,6 +15,6 @@ wait(1)
 
 for _, player in ipairs(Players:GetPlayers()) do
 	if not whitelist[player.UserId] then
-		player:Kick("Jack me la pela")
+		player:Kick("PENDEJO LOL")
 	end
 end
