@@ -1,0 +1,24 @@
+-- Script de servidor (colócalo en ServerScriptService)
+
+local Players = game:GetService("Players")
+
+-- Lista blanca usando ID de usuario (UserId)
+local whitelist = {
+	[5087536946] = true, -- Ghost
+	[4610082294] = true  -- Saul
+	[1867007462] = true  -- Marti
+	[675984744] = true  -- Andy
+	[87654321] = true  -- Otro ejemplo
+	[87654321] = true  -- Otro ejemplo
+	[87654321] = true  -- Otro ejemplo
+	[87654321] = true  -- Otro ejemplo
+}
+
+-- Espera opcional antes de hacer kick
+wait(1)
+
+for _, player in ipairs(Players:GetPlayers()) do
+	if not whitelist[player.UserId] then
+		player:Kick("Jack me la pela")
+	end
+end
